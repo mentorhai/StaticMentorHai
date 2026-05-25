@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MentorHai - 1 on 1 Mentorship Platform</title>
 
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     *{
@@ -53,10 +56,17 @@
       padding:18px 0;
     }
 
+    /* Updated to elegantly accommodate an image asset instead of just text */
     .logo{
-      font-size:28px;
-      font-weight:700;
-      color:#38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img{
+      height: 36px; /* Adjust scale matching your layout */
+      width: auto;
+      object-fit: contain;
     }
 
     .nav-links{
