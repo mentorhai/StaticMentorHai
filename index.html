@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MentorHai - 1 on 1 Mentorship Platform</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#0f172a;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:1000;
+      backdrop-filter:blur(12px);
+      background:rgba(15,23,42,0.8);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-wrapper{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#38bdf8;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:28px;
+      align-items:center;
+    }
+
+    .nav-links a{
+      color:#dbeafe;
+      font-size:15px;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#38bdf8;
+    }
+
+    .btn{
+      background:linear-gradient(135deg,#38bdf8,#6366f1);
+      padding:12px 22px;
+      border-radius:12px;
+      color:white;
+      font-weight:600;
+      display:inline-block;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding-top:100px;
+    }
+
+    .hero-wrapper{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .hero h1{
+      font-size:60px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero h1 span{
+      color:#38bdf8;
+    }
+
+    .hero p{
+      color:#cbd5e1;
+      font-size:18px;
+      line-height:1.8;
+      margin-bottom:35px;
+    }
+
+    .hero-image img{
+      width:100%;
+      border-radius:24px;
+      box-shadow:0 20px 80px rgba(0,0,0,0.4);
+    }
+
+    /* FEATURES */
+
+    .section{
+      padding:100px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:42px;
+      margin-bottom:15px;
+    }
+
+    .section-title p{
+      color:#94a3b8;
+      max-width:700px;
+      margin:auto;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:25px;
+    }
+
+    .feature-card{
+      background:#111c34;
+      padding:35px;
+      border-radius:24px;
+      transition:0.3s;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .feature-card:hover{
+      transform:translateY(-8px);
+      border-color:#38bdf8;
+    }
+
+    .feature-card img{
+      width:70px;
+      margin-bottom:20px;
+    }
+
+    .feature-card h3{
+      margin-bottom:15px;
+      font-size:22px;
+    }
+
+    .feature-card p{
+      color:#94a3b8;
+      line-height:1.8;
+    }
+
+    /* MENTORS */
+
+    .mentors{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:25px;
+    }
+
+    .mentor-card{
+      background:#111c34;
+      border-radius:24px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .mentor-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .mentor-card img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+    }
+
+    .mentor-info{
+      padding:25px;
+    }
+
+    .mentor-info h3{
+      margin-bottom:8px;
+    }
+
+    .mentor-info p{
+      color:#94a3b8;
+      margin-bottom:20px;
+    }
+
+    /* CTA */
+
+    .cta{
+      background:linear-gradient(135deg,#38bdf8,#6366f1);
+      padding:70px 40px;
+      border-radius:30px;
+      text-align:center;
+    }
+
+    .cta h2{
+      font-size:42px;
+      margin-bottom:20px;
+    }
+
+    .cta p{
+      max-width:700px;
+      margin:auto;
+      margin-bottom:30px;
+      line-height:1.8;
+    }
+
+    .cta .btn{
+      background:white;
+      color:#111827;
+    }
+
+    footer{
+      padding:40px 0;
+      text-align:center;
+      color:#94a3b8;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:992px){
+
+      .hero-wrapper{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        text-align:center;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .features{
+        grid-template-columns:1fr;
+      }
+
+      .mentors{
+        grid-template-columns:1fr;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .section-title h2{
+        font-size:32px;
+      }
+
+      .cta h2{
+        font-size:30px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="container nav-wrapper">
+      <div class="logo">MentorHai</div>
+
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#mentors">Mentors</a>
+        <a href="#join">Join</a>
+        <a href="#" class="btn">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="container hero-wrapper">
+
+      <div>
+        <h1>
+          Learn Directly From
+          <span>Industry Mentors</span>
+        </h1>
+
+        <p>
+          MentorHai connects students and professionals with top mentors for personalized 1-on-1 guidance, career growth, mock interviews, and real-world learning.
+        </p>
+
+        <a href="#" class="btn">
+          Book Your Mentor
+        </a>
+      </div>
+
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+
+  <section class="section" id="features">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Why Choose MentorHai?</h2>
+        <p>
+          Personalized mentorship sessions designed to help you grow faster in your career and learning journey.
+        </p>
+      </div>
+
+      <div class="features">
+
+        <div class="feature-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="">
+          <h3>1-on-1 Sessions</h3>
+          <p>
+            Get dedicated mentorship and personal guidance from experts.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="">
+          <h3>Career Guidance</h3>
+          <p>
+            Learn roadmap, interview preparation, resume review, and growth strategies.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="">
+          <h3>Flexible Learning</h3>
+          <p>
+            Book sessions anytime from anywhere using mobile or desktop.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MENTORS -->
+
+  <section class="section" id="mentors">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Meet Our Mentors</h2>
+        <p>
+          Learn from experienced professionals working at top companies.
+        </p>
+      </div>
+
+      <div class="mentors">
+
+        <div class="mentor-card">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop" alt="">
+          <div class="mentor-info">
+            <h3>Rahul Sharma</h3>
+            <p>Frontend Engineer • Google</p>
+            <a href="#" class="btn">Book Session</a>
+          </div>
+        </div>
+
+        <div class="mentor-card">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop" alt="">
+          <div class="mentor-info">
+            <h3>Priya Verma</h3>
+            <p>Product Manager • Microsoft</p>
+            <a href="#" class="btn">Book Session</a>
+          </div>
+        </div>
+
+        <div class="mentor-card">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop" alt="">
+          <div class="mentor-info">
+            <h3>Aman Singh</h3>
+            <p>Data Scientist • Amazon</p>
+            <a href="#" class="btn">Book Session</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+
+  <section class="section" id="join">
+
+    <div class="container">
+
+      <div class="cta">
+        <h2>Start Your Mentorship Journey Today</h2>
+
+        <p>
+          Join MentorHai and connect with experts who can help you grow faster and achieve your career goals.
+        </p>
+
+        <a href="#" class="btn">
+          Join MentorHai
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 MentorHai. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
