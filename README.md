@@ -1,0 +1,2 @@
+# StaticMentorHai
+Static Page
